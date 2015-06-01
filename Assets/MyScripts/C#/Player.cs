@@ -5,21 +5,21 @@ public class Player : MonoBehaviour {
 	float speed;
 	float width;
 	float height;
-	//public Bullet bullet_01;
+	public Bullet bullet_01;
 	float dx;
 	float dy;
 
 	void Start () {
-		speed = 0.5f;
+		speed = 0.4f;
 		width  = transform.FindChild ("body").gameObject.GetComponent<Renderer> ().bounds.size.x;
 		height = transform.FindChild ("body").gameObject.GetComponent<Renderer> ().bounds.size.y;
 	}
 	
 	void Update () {
 		Move ();
-//		if (Time.frameCount % 10 == 0 && sf == 1) {
-//			Shot();
-//		}
+		if (Time.frameCount % 10 == 0) {
+			Shot();
+		}
 	}
 
 	void Move () {
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour {
 		Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2 (0, 0));
 		Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2 (1, 1));
 		Vector2 pos = transform.position;
-		//pos += direction * speed * Time.deltaTime;
+		//pos += direction * speed * 40 * Time.deltaTime;
 		transform.GetComponent<Rigidbody> ().AddForce (direction, ForceMode.Impulse);
 		pos.x = Mathf.Clamp (pos.x, min.x + width/2, max.x- width/2);
 		pos.y = Mathf.Clamp (pos.y, min.y + height, max.y - height);
@@ -45,8 +45,10 @@ public class Player : MonoBehaviour {
 		transform.position = pos;
 	}
 
-//	void Shot () {
-//		Bullet bullet_clone = Instantiate (bullet_01, transform.position, transform.rotation) as Bullet;
-//		bullet_clone.GetComponent<Rigidbody>().velocity = new Vector3 (0, 1000, 0);
-//	}
+	void Shot () {
+		Vector2 pos = transform.position;
+		pos.y += 2;
+		Bullet bullet_clone = Instantiate (bullet_01, pos, transform.rotation) as Bullet;
+		bullet_clone.GetComponent<Rigidbody>().velocity = new Vector3 (0, 20, 0);
+	}
 }
