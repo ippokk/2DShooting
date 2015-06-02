@@ -9,9 +9,10 @@ public class Enemy : MonoBehaviour {
 	int dx;
 	int dy;
 	int sf;
+	public GameObject explosion;
 	
 	void Start () {
-		speed = 200;
+		speed = 5;
 		width  = transform.FindChild ("body").gameObject.GetComponent<Renderer> ().bounds.size.x;
 		height = transform.FindChild ("body").gameObject.GetComponent<Renderer> ().bounds.size.y;
 	}
@@ -24,7 +25,7 @@ public class Enemy : MonoBehaviour {
 		Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2 (0, 0));
 		Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2 (1, 1));
 		Vector2 pos = transform.position;
-		if (Time.frameCount % 6 == 0) {
+		if (Time.frameCount % 30 == 0) {
 			dx = Random.Range (0, 3) - 1;
 			dy = Random.Range (0, 3) - 1;
 			if (pos.x < -300)
@@ -44,7 +45,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider c) {
-		life -= 1;
+//		life -= 1;
 		if (life < 1) {
 			Explore();		
 		}
@@ -52,5 +53,6 @@ public class Enemy : MonoBehaviour {
 
 	void Explore () {
 		Destroy (this.gameObject);
+		Instantiate (explosion, transform.position, transform.rotation);
 	}
 }

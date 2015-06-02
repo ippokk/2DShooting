@@ -28,15 +28,15 @@ public class Player : MonoBehaviour {
 //		if (Time.frameCount % 6 == 0) {
 //			dx = Random.Range (0, 3) - 1;
 //			dy = Random.Range (0, 3) - 1;
-//			sf = Random.Range (0, 2);
+////			sf = Random.Range (0, 2);
 //		}
 		Vector2 direction = new Vector2 (dx, dy).normalized;
 		direction = Vector2.Scale(direction,new Vector2(speed,speed));
 		Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2 (0, 0));
 		Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2 (1, 1));
 		Vector2 pos = transform.position;
-		//pos += direction * speed * 40 * Time.deltaTime;
-		transform.GetComponent<Rigidbody> ().AddForce (direction, ForceMode.Impulse);
+		pos += direction * 50 * Time.deltaTime;
+//		transform.GetComponent<Rigidbody> ().AddForce (direction, ForceMode.Impulse);
 		pos.x = Mathf.Clamp (pos.x, min.x + width/2, max.x- width/2);
 		pos.y = Mathf.Clamp (pos.y, min.y + height, max.y - height);
 		if (Input.GetKey(KeyCode.Alpha0)){

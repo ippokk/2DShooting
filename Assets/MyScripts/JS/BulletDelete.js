@@ -1,6 +1,6 @@
 ﻿#pragma strict
 
-var flag = false;
+internal var flag = false;
 
 function OnBecameVisible () {
 	flag = true;
