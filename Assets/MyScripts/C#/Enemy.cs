@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour {
 	int dx;
 	int dy;
 	int sf;
+	public Bullet bullet_01;
 	public GameObject explosion;
 	
 	void Start () {
@@ -19,6 +20,9 @@ public class Enemy : MonoBehaviour {
 	
 	void Update () {
 		Move ();
+		if (Time.frameCount % 10 == 0) {
+			Shot();
+		}
 	}
 
 	void Move () {
@@ -44,15 +48,27 @@ public class Enemy : MonoBehaviour {
 		transform.position = pos;
 	}
 
+	void Shot () {
+		Vector2 pos = transform.position;
+		Bullet bullet_clone = Instantiate (bullet_01, pos, transform.rotation) as Bullet;
+		bullet_clone.GetComponent<Rigidbody>().velocity = new Vector3 (0, -10, 0);
+	}
+
 	void OnTriggerEnter (Collider c) {
-//		life -= 1;
-		if (life < 1) {
-			Explore();		
+		string layer_name = (LayerMask.LayerToName(c.gameObject.layer));
+		switch (layer_name) {
+		case ("Player_B"):
+			c.transform.GetComponent<Bullet> ().BulletCollision ();
+			life -= 1;
+			if (life < 1) {
+				Explore ();	
+			}
+			break;
 		}
 	}
 
 	void Explore () {
 		Destroy (this.gameObject);
-		Instantiate (explosion, transform.position, transform.rotation);
+		Destroy (Instantiate (explosion, transform.position, transform.rotation), 2.0f);
 	}
 }

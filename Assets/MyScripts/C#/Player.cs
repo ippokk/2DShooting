@@ -5,9 +5,9 @@ public class Player : MonoBehaviour {
 	float speed;
 	float width;
 	float height;
-	public Bullet bullet_01;
 	float dx;
 	float dy;
+	public Bullet bullet_01;
 
 	void Start () {
 		speed = 0.4f;
@@ -35,8 +35,8 @@ public class Player : MonoBehaviour {
 		Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2 (0, 0));
 		Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2 (1, 1));
 		Vector2 pos = transform.position;
-		pos += direction * 50 * Time.deltaTime;
-//		transform.GetComponent<Rigidbody> ().AddForce (direction, ForceMode.Impulse);
+//		pos += direction * 50 * Time.deltaTime;
+		transform.GetComponent<Rigidbody> ().AddForce (direction, ForceMode.Impulse);
 		pos.x = Mathf.Clamp (pos.x, min.x + width/2, max.x- width/2);
 		pos.y = Mathf.Clamp (pos.y, min.y + height, max.y - height);
 		if (Input.GetKey(KeyCode.Alpha0)){
@@ -47,8 +47,7 @@ public class Player : MonoBehaviour {
 
 	void Shot () {
 		Vector2 pos = transform.position;
-		pos.y += 2;
-		Bullet bullet_clone = Instantiate (bullet_01, pos, transform.rotation) as Bullet;
+		Bullet bullet_clone = Instantiate (bullet_01, pos + new Vector2 (0.0f ,2.0f), transform.rotation) as Bullet;
 		bullet_clone.GetComponent<Rigidbody>().velocity = new Vector3 (0, 20, 0);
 	}
 }
