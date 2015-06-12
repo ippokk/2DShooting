@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Bullet : MonoBehaviour {
 
-	public GameObject explosion;
+	public GameObject hit;
 	public float time;
 
 	void Start () {
@@ -14,13 +14,13 @@ public class Bullet : MonoBehaviour {
 	
 	}
 
-//	void OnTriggerEnter(Collider c){
-//		Destroy (this.gameObject);
-//		Destroy (Instantiate (explosion, transform.position, transform.rotation), time);
-//	}
+	void OnTriggerEnter(Collider c){
+		Destroy (this.gameObject);
+		Destroy (Instantiate (hit, transform.position, transform.rotation), time);
+	}
 
 	public void BulletCollision(){
-		Destroy (this.gameObject);
-		Destroy (Instantiate (explosion, transform.position, transform.rotation), time);
+//		Destroy (this.gameObject);
+//		Destroy (Instantiate (explosion, transform.position, transform.rotation), time);
 	}
 }

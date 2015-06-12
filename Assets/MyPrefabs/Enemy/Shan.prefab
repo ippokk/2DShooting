@@ -118,8 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b82afae304e564abd4597c79f29534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 10
-  bullet_01: {fileID: 11422752, guid: cb79e49e6a1ae1641a23b8b408faa34a, type: 2}
+  bullet_01: {fileID: 11401366, guid: d6bcb3ba9a3db0d4c9b414c8da570887, type: 2}
   explosion: {fileID: 192318, guid: b550435a412d6be449104edfe40216ef, type: 2}
 --- !u!135 &13590624
 SphereCollider:

@@ -13,11 +13,11 @@ TagManager:
   - UI
   - 
   - 
-  - 2D
-  - Player_O
-  - Player_B
-  - Enemy_O
-  - Enemy_B
+  - 2DShow
+  - PlayerObject
+  - PlayerBullet
+  - EnemyObject
+  - EnemyBullet
   - 
   - 
   - 

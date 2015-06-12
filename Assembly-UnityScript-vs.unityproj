@@ -46,10 +46,11 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\KY_effects\Script\ConGUI.js" />
-     <Compile Include="Assets\KY_effects\Script\Lighting.js" />
+     <Compile Include="Assets\MyEffects\KY_effects\Script\ConGUI.js" />
+     <Compile Include="Assets\MyEffects\KY_effects\Script\Lighting.js" />
      <Compile Include="Assets\MyScripts\JS\BulletDelete.js" />
-     <None Include="Assets\KY_effects\MagicEffectsPackFree\ReadMe.txt" />
+     <None Include="Assets\Resources\Text\stage1.txt" />
+     <None Include="Assets\MyEffects\KY_effects\MagicEffectsPackFree\ReadMe.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>F:/install/unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

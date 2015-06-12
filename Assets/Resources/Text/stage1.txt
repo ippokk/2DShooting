@@ -1,0 +1,4 @@
+#frame,enemy,life,move_ptn,x,y,move_spd,bullet,shot_ptn,shot_spd,interval
+300,0,10,0,0.3,1.1,5.0,0,0,0,0
+300,0,10,0,0.5,1.1,10.0,0,0,0,0
+302,0,10,0,0.7,1.1,15.0,0,0,0,0

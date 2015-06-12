@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet_01: {fileID: 11432286, guid: e9f1ad5f17aa8a14bbcc62b47beeabcb, type: 2}
+  explosion: {fileID: 177952, guid: 50990b64e08bc2447a701d9aefde5662, type: 2}
 --- !u!135 &13581162
 SphereCollider:
   m_ObjectHideFlags: 1
